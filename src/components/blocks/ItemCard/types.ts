@@ -8,16 +8,16 @@ export interface HeaderInfoProps {
 
 export interface ItemCardProps {
   loading: boolean;
-  renderSubData: Array<object>;
+  subData: Array<SubData> | SubData;
   config: Array<ConfigProps>;
-  item: {
-    image: string;
-    name: string;
-  };
+  item: ConfigProps;
   headerName: string;
 }
 
-interface ConfigProps {
-  title: string;
+export interface ConfigProps {
+  [key: string]: string;
+}
+
+interface SubData {
   key: string;
 }

@@ -1,6 +1,8 @@
+import { ListPayload } from 'types/interfaces';
+
 export interface LocationsProps {
   getFetchLocations: () => {};
-  locations: Array<object>;
+  locations: Array<Locations> | Locations;
   locationsInfo: {
     count: number;
     pages: number;
@@ -8,3 +10,13 @@ export interface LocationsProps {
   };
   loading: boolean;
 }
+
+interface Locations {
+  [key: string]: string;
+}
+
+export interface MapDispatchProps {
+  getFetchLocations: (payload: ListPayload) => {};
+}
+
+export interface MapStateProps {}

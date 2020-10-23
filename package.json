@@ -57,6 +57,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.162",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "babel-plugin-styled-components": "^1.11.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-airbnb-typescript": "^11.0.0",

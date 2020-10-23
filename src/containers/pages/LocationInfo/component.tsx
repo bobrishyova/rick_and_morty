@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemCard from 'components/blocks/ItemCard/index';
-import { LocationInfoProps } from './types';
+import { IdProps } from 'types/interfaces';
+import { LocationInfoProps, LocationItem } from './types';
 
 const LocationInfo = ({ location, getFetchLocation, loading }: LocationInfoProps) => {
-  const { id } = useParams<any>();
+  const { id } = useParams<IdProps>();
 
   useEffect(() => {
     getFetchLocation({ id });
@@ -12,7 +13,7 @@ const LocationInfo = ({ location, getFetchLocation, loading }: LocationInfoProps
 
   const renderResidents = useMemo(() => {
     if (Array.isArray(location.residents)) {
-      return location.residents.map((character: any) => (
+      return location.residents.map((character: LocationItem) => (
         <div key={character.id}>{character.name}</div>
       ));
     }
@@ -24,7 +25,7 @@ const LocationInfo = ({ location, getFetchLocation, loading }: LocationInfoProps
       headerName="Residents:"
       loading={loading}
       item={location}
-      renderSubData={renderResidents}
+      subData={renderResidents}
       config={[
         {
           key: 'type',

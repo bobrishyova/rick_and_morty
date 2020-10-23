@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemCard from 'components/blocks/ItemCard/index';
-import { EpisodeInfoProps } from './types';
+import { EpisodeInfoProps, ResidentItem } from './types';
+import { IdProps } from 'types/interfaces';
 
-const EpisodeInfo = ({ episode, getFetchEpisode, loading }: EpisodeInfoProps) => {
-  const { id } = useParams<any>();
+const EpisodeInfo = ({ episode, getFetchEpisode, loading }: any) => {
+  const { id } = useParams<IdProps>();
 
   useEffect(() => {
     getFetchEpisode({ id });
@@ -12,7 +13,7 @@ const EpisodeInfo = ({ episode, getFetchEpisode, loading }: EpisodeInfoProps) =>
 
   const renderCharacters = useMemo(() => {
     if (Array.isArray(episode.characters)) {
-      return episode.characters.map((resident: any) => (
+      return episode.characters.map((resident: ResidentItem) => (
         <div key={resident.id}>{resident.name}</div>
       ));
     }
@@ -24,7 +25,7 @@ const EpisodeInfo = ({ episode, getFetchEpisode, loading }: EpisodeInfoProps) =>
       headerName="Сharacters:"
       loading={loading}
       item={episode}
-      renderSubData={renderCharacters}
+      subData={renderCharacters}
       config={[
         {
           key: 'air_date',
