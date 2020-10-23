@@ -1,21 +1,21 @@
+import { Character, ItemPayload, IdProps } from 'types/interfaces';
+
 export interface СharacterInfoProps {
-  character: {
-    image: string;
-    name: string;
-    status: string;
-    species: string;
-    gender: string;
-    created: string;
-    episodes: Array<Episodes>;
-  };
+  character: Character;
   loading: boolean;
-  getFetchCharacter: (id: Id) => {};
+  getFetchCharacter: (id: IdProps) => {};
 }
 
-interface Episodes {
+export interface EpisodeItem {
+  id: number;
   episode: string;
 }
 
-interface Id {
-  id: number;
+export interface MapStateProps {
+  // character: StateProps;
+  // loading: TypeObject;
+}
+
+export interface MapDispatchProps {
+  getFetchCharacter: (payload: ItemPayload) => {};
 }

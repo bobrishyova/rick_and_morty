@@ -3,6 +3,7 @@ import qs from 'query-string';
 import { useLocation, useHistory } from 'react-router-dom';
 import createPagination from 'helpers/createPagination';
 import { TotalPageProps } from './types';
+import { THREE_DOTS } from 'constants/index';
 
 import { DivWithPagination, PageSwitch, DivWithPage } from './styles';
 
@@ -30,14 +31,16 @@ const Pagination = ({ totalPage }: TotalPageProps) => {
 
   return (
     <DivWithPagination>
-      <PageSwitch
-        role="button"
-        tabIndex={0}
-        onClick={handleSetCurrentPage(currentPage >= 2 ? currentPage - 1 : 1)}
-        onKeyDown={handleSetCurrentPage(currentPage >= 2 ? currentPage - 1 : 1)}
-      >
-        &#171;
-      </PageSwitch>
+      {currentPage !== 1 && (
+        <PageSwitch
+          role="button"
+          tabIndex={0}
+          onClick={handleSetCurrentPage(currentPage - 1)}
+          onKeyDown={handleSetCurrentPage(currentPage - 1)}
+        >
+          &#171;
+        </PageSwitch>
+      )}
       {createPagination({
         currentPage,
         totalPage,
@@ -49,19 +52,21 @@ const Pagination = ({ totalPage }: TotalPageProps) => {
           onClick={handleSetCurrentPage(pagination.value)}
           onKeyDown={handleSetCurrentPage(pagination.value)}
           selected={currentPage === pagination.value}
-          threeDots={pagination.value === '...'}
+          threeDots={pagination.value === THREE_DOTS}
         >
           {pagination.value}
         </DivWithPage>
       ))}
-      <PageSwitch
-        role="button"
-        tabIndex={0}
-        onClick={handleSetCurrentPage(currentPage <= totalPage - 1 ? currentPage + 1 : totalPage)}
-        onKeyDown={handleSetCurrentPage(currentPage <= totalPage - 1 ? currentPage + 1 : totalPage)}
-      >
-        &#187;
-      </PageSwitch>
+      {currentPage !== totalPage && (
+        <PageSwitch
+          role="button"
+          tabIndex={0}
+          onClick={handleSetCurrentPage(currentPage + 1)}
+          onKeyDown={handleSetCurrentPage(currentPage + 1)}
+        >
+          &#187;
+        </PageSwitch>
+      )}
     </DivWithPagination>
   );
 };

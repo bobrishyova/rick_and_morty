@@ -17,11 +17,12 @@ import {
   EPISODE_INFO_PAGE,
   LOCATIONS_PAGE,
   LOCATION_INFO_PAGE,
+  DARK_THEME_NAME,
 } from 'constants/index';
 
 const App = () => (
   <Provider store={store}>
-    <Theme>
+    <Theme theme={DARK_THEME_NAME}>
       <Router>
         <Header />
         <Switch>

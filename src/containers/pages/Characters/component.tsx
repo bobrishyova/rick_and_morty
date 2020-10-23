@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from 'components/blocks/Layout/index';
+// import { CharactersProps } from './types';
 
 const Characters = ({ getFetchCharacters, characters, charactersInfo, loading }: any) => {
   return (

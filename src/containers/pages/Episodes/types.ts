@@ -1,6 +1,8 @@
+import { ListPayload } from 'types/interfaces';
+
 export interface EpisodesProps {
   getFetchEpisodes: () => {};
-  episodes: Array<object>;
+  episodes: Array<Episodes> | Episodes;
   episodesInfo: {
     count: number;
     pages: number;
@@ -8,3 +10,13 @@ export interface EpisodesProps {
   };
   loading: boolean;
 }
+
+interface Episodes {
+  [key: string]: string;
+}
+
+export interface MapDispatchProps {
+  getFetchEpisodes: (payload: ListPayload) => {};
+}
+
+export interface MapStateProps {}

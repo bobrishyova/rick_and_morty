@@ -1,5 +1,6 @@
 import React from 'react';
-import Menu from './config';
+import menuConfig from './config';
+
 import {
   HeaderPage,
   Nav,
@@ -23,7 +24,7 @@ const Header = () => (
         <Line />
       </MenuButton>
       <MenuBox>
-        {Menu.map(({ url, title }) => (
+        {menuConfig.map(({ url, title }) => (
           <Item>
             <MenuItem href={url}>{title}</MenuItem>
           </Item>
@@ -31,7 +32,7 @@ const Header = () => (
       </MenuBox>
     </HamburgerMenu>
     <Nav>
-      {Menu.map(({ url, title }) => (
+      {menuConfig.map(({ url, title }) => (
         <StyledLink to={url}>
           <Item>{title}</Item>
         </StyledLink>

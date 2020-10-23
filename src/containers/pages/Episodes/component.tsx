@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from 'components/blocks/Layout/index';
+// import { EpisodesProps } from './types';
 
 const Episodes = ({ getFetchEpisodes, episodes, episodesInfo, loading }: any) => {
   return (

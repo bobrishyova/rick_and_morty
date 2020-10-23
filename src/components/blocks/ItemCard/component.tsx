@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import Loading from 'components/blocks/Loading/index';
 import format from 'constants/format';
+import { ItemCardProps, ConfigProps } from './types'; 
 
 import {
   HeaderInfo,
@@ -13,7 +14,7 @@ import {
   DetailedInfo,
 } from './styles';
 
-const ItemCard = ({ item, renderSubData, config, loading, headerName }: any) => {
+const ItemCard = ({ item, subData, config, loading, headerName }: ItemCardProps) => {
   return (
     <>
       {loading ? (
@@ -22,16 +23,16 @@ const ItemCard = ({ item, renderSubData, config, loading, headerName }: any) => 
         <HeaderInfo presenceOfImage={item.image}>
           <ImageAndListOfInfo>
             {item.image && <ImgCharacter src={item.image} alt={item.name} />}
-            {renderSubData && (
+            {subData && (
               <>
                 <ListNameAndListOfInfo>{headerName}</ListNameAndListOfInfo>
-                <ListNameAndListOfInfo>{renderSubData}</ListNameAndListOfInfo>
+                <ListNameAndListOfInfo>{subData}</ListNameAndListOfInfo>
               </>
             )}
           </ImageAndListOfInfo>
           <DivWithInfo divWithImage={item.image}>
             <Name>{item.name}</Name>
-            {config.map(({ title, key, time }: any) => (
+            {config.map(({ title, key, time }: ConfigProps) => (
               <DetailedInfo>
                 {title}:{time ? moment(item[key]).format(format) : item[key]}
               </DetailedInfo>

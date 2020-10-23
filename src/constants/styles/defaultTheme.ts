@@ -1,24 +1,18 @@
-const theme = {
-  colors: {
-    white: '#FFFFFF',
-    black: '#000000',
-    darkGray: '#565961',
-    lightGray: '#ECEFF1',
-    dullGray: '#CFD8DC',
-    grayish: '#DDDDDD',
-    dark: '#1A1A1A',
-    lighterThanBlack: '#171717',
-  },
-  fontSizes: [12, 14, 16, 18, 20, 22, 28],
-  media: {
-    biggest: 990,
-    big: 920,
-    lessThanBig: 755,
-    moreThanMiddle: 633,
-    middle: 500,
-    small: 440,
-    smallest: 360,
-  },
+import { Media } from 'constants/styles/types';
+
+export const fontSizes: Array<string> = ['12px', '14px', '16px', '18px', '20px', '22px', '28px'];
+
+export const media: Media = {
+  biggest: '990px',
+  big: '920px',
+  lessThanBig: '755px',
+  moreThanMiddle: '633px',
+  middle: '500px',
+  small: '440px',
+  smallest: '360px',
 };
 
-export default theme;
+export const DEFAULT_THEME = {
+  fontSizes,
+  media,
+};

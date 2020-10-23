@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from 'components/blocks/Layout';
+// import { LocationsProps } from './types';
 
 const Locations = ({ getFetchLocations, locations, locationsInfo, loading }: any) => {
   return (
